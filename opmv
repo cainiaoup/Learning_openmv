@@ -1,0 +1,18 @@
+tab two ---opmv
+1.考了一些例程进去观察现象，理解代码
+2.理解了一下openmv初始数据包的函数意思（附上代码）
+# Untitled - By: Administrator - 周四 四月 5 2018
+import sensor, image, time            #声明小爷要使用这些模块了啦，你们给我准备战斗
+
+sensor.reset()                        #镜头初始化
+sensor.set_pixformat(sensor.RGB565)   #选择相片的格式两种：RGB565(16位-3个像素点) and GRAYSCALE（grayscale-8位-1个像素点）
+sensor.set_framesize(sensor.QVGA)     #Set frame size to QVGA (320x240)（openmv就这个范围好像）
+sensor.skip_frames(time = 2000)       #Wait for settings take effect（延时吧类似）
+
+clock = time.clock()                  # Create a clock object to track the FPS.（类似于时钟跟踪吧）
+
+while(True):
+    clock.tick()                      # Update the FPS clock.（类似于重装初值）
+    img = sensor.snapshot()           # Take a picture and return the image.（最终目的啦~~采集图片嘛）
+    print(clock.fps())               #不太重要，如果脱机运行的话，这个是脱机运行可以加倍的意思
+ 3.
